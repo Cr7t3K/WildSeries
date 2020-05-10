@@ -1,0 +1,13 @@
+$primary: #2BCAED;
+$secondary: #000;
+$white: #FBFCFA;
+
+body {
+    background-color: $white;
+}
+
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+
