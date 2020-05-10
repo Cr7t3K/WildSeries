@@ -5,7 +5,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/wild/">Wild</a>
+            <a class="nav-item nav-link" href="{{ path('wild_index') }}">Wild</a>
+            <a class="nav-item nav-link" href="{{ path('wild_show', {'slug':5}) }}">Show</a>
+
         </div>
     </div>
 </nav>

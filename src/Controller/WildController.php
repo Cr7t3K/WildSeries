@@ -17,4 +17,19 @@ class WildController extends AbstractController
             'website' => 'Wild Séries',
         ]);
     }
+
+    /**
+     * @Route("/wild/show/{slug}",
+     *     requirements={"slug"="[0-9-a-z]+$"},
+     *     defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
+     *     name="wild_show")
+     * @param $slug
+     * @return Response
+     */
+    public function show($slug) : Response
+    {
+        $slug = ucwords(implode(" ", explode("-", $slug)));
+        return $this->render('wild/show.html.twig', ['slug' => $slug]);
+    }
+
 }
