@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ currentCategory }}{% endblock %}
+
+{% block body %}
+
+    <h1>Toutes les séries de la category : {{ currentCategory }}</h1>
+    {% for program in programsByCategory %}
+        <div>
+            <h2>{{ program.id }} // {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+            <p>{{ program.summary }}</p>
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+
+{% endblock %}
