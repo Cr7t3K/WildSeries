@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 class WildController extends AbstractController
 {
     /**
-     * @Route("/", name="wild_index")
+     * @Route("/", name="index")
      */
     public function index() : Response
     {
@@ -44,7 +44,7 @@ class WildController extends AbstractController
      * @Route("/show/{slug}",
      *     requirements={"slug"="[\s/\w\-]+"},
      *     defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
-     *     name="wild_show")
+     *     name="show")
      * @param $slug
      * @return Response
      */
@@ -110,7 +110,7 @@ class WildController extends AbstractController
      * @Route("/program/{slug}",
      *     requirements={"slug"="[\s/\w\-]+"},
      *     defaults={"slug"="Aucune série sélectionné"},
-     *     name="wild_program")
+     *     name="program")
      * @param $slug
      * @return Response
      */
@@ -148,7 +148,7 @@ class WildController extends AbstractController
 
     /**
      * @Route("/season/{id}",
-     *     name="wild_program_season")
+     *     name="program_season")
      * @param $id
      * @return Response
      */
@@ -177,7 +177,7 @@ class WildController extends AbstractController
     /**
      * @Route("/episode/{id}",
      *     requirements={"id"="[/\d]+"},
-     *     name="wild_episode")
+     *     name="episode")
      * @param Episode $episode
      * @return Response
      */
