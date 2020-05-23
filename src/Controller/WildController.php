@@ -10,10 +10,17 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
+
+/**
+ * Class WildController
+ *
+ * @package App\Controller
+ * @Route("/wild", name="wild_")
+ */
 class WildController extends AbstractController
 {
     /**
-     * @Route("/wild", name="wild_index")
+     * @Route("/", name="wild_index")
      */
     public function index() : Response
     {
@@ -34,7 +41,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/show/{slug}",
+     * @Route("/show/{slug}",
      *     requirements={"slug"="[\s/\w\-]+"},
      *     defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
      *     name="wild_show")
@@ -68,7 +75,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/category/{categoryName}",
+     * @Route("/category/{categoryName}",
      *     name="show_category")
      * @param string $categoryName
      * @return Response
@@ -100,7 +107,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/program/{slug}",
+     * @Route("/program/{slug}",
      *     requirements={"slug"="[\s/\w\-]+"},
      *     defaults={"slug"="Aucune série sélectionné"},
      *     name="wild_program")
@@ -140,7 +147,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/season/{id}",
+     * @Route("/season/{id}",
      *     name="wild_program_season")
      * @param $id
      * @return Response
