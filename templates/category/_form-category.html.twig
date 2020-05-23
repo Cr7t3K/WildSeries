@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All programs{% endblock %}
+
+{% block body %}
+    <h2>All category</h2>
+    <ul>
+        {% for category in categorys %}
+            <li>{{ category.name }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+
+
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}

@@ -6,16 +6,27 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\ProgramSearchType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
+
+/**
+ * Class WildController
+ *
+ * @package App\Controller
+ * @Route("/wild", name="wild_")
+ */
 class WildController extends AbstractController
 {
     /**
-     * @Route("/wild", name="wild_index")
+     * @Route("/", name="index")
+     * @param Request $request
+     * @return Response
      */
-    public function index() : Response
+    public function index(Request $request) : Response
     {
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
@@ -27,17 +38,35 @@ class WildController extends AbstractController
             );
         }
 
-        return $this->render(
-            'wild/index.html.twig',
-                ['programs' => $programs]
+
+        $form = $this->createForm(ProgramSearchType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $data = $form->getData();
+            $keyword = preg_replace(
+                '/-/',
+                ' ', ucwords(trim(strip_tags($data['searchField'])), "-")
+            );
+            // $data contains $_POST data
+            // TODO : Faire une recherche dans la BDD avec les infos de $data…
+            $programs = $this->getDoctrine()
+                ->getRepository(Program::class)
+                ->findBy(["title" => mb_strtolower($keyword)]);
+        }
+
+        return $this->render('wild/index.html.twig', [
+                'programs' => $programs,
+                'form' => $form->createView(),
+            ]
         );
     }
 
     /**
-     * @Route("/wild/show/{slug}",
+     * @Route("/show/{slug}",
      *     requirements={"slug"="[\s/\w\-]+"},
      *     defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
-     *     name="wild_show")
+     *     name="show")
      * @param $slug
      * @return Response
      */
@@ -47,13 +76,16 @@ class WildController extends AbstractController
             throw $this
                 ->createNotFoundException('No slug has been sent to find a program in program\'s table.');
         }
+
         $slug = preg_replace(
             '/-/',
             ' ', ucwords(trim(strip_tags($slug)), "-")
         );
+
         $program = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findOneBy(['title' => mb_strtolower($slug)]);
+
         if (!$program) {
             throw $this->createNotFoundException(
                 'No program with '.$slug.' title, found in program\'s table.'
@@ -68,7 +100,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/category/{categoryName}",
+     * @Route("/category/{categoryName}",
      *     name="show_category")
      * @param string $categoryName
      * @return Response
@@ -92,7 +124,7 @@ class WildController extends AbstractController
             );
 
         return $this->render(
-            'wild/category.html.twig', [
+            'category/category.html.twig', [
                 'programsByCategory' => $programsByCategory,
                 'currentCategory' => $categoryName
                 ]
@@ -100,10 +132,10 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/program/{slug}",
+     * @Route("/program/{slug}",
      *     requirements={"slug"="[\s/\w\-]+"},
      *     defaults={"slug"="Aucune série sélectionné"},
-     *     name="wild_program")
+     *     name="program")
      * @param $slug
      * @return Response
      */
@@ -140,8 +172,8 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/season/{id}",
-     *     name="wild_program_season")
+     * @Route("/season/{id}",
+     *     name="program_season")
      * @param $id
      * @return Response
      */
@@ -170,7 +202,7 @@ class WildController extends AbstractController
     /**
      * @Route("/episode/{id}",
      *     requirements={"id"="[/\d]+"},
-     *     name="wild_episode")
+     *     name="episode")
      * @param Episode $episode
      * @return Response
      */

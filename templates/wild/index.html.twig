@@ -3,10 +3,18 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
+
+    {{ form_start(form) }}
+        {{ form_row(form.searchField) }}
+        <button type="submit" name="btnSearch">Rechercher</button>
+    {{ form_end(form) }}
+
+
     <h1>Toutes les séries de la table program : </h1>
     {% for program in programs %}
         <div>
-            <h2><a href="{{ path('wild_program', {"slug": program.title }) }}">{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</a></h2>
+            <h2><a href="{{ path('wild_program', {"slug": program.title }) }}">{{ loop.index }} / {{ program.title }} -
+                    Catégorie : {{ program.category.name }}</a></h2>
             <p>{{ program.summary }}</p>
         </div>
     {% else %}
