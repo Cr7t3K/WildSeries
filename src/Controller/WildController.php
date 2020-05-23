@@ -6,6 +6,8 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\ProgramSearchType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,8 +23,11 @@ class WildController extends AbstractController
 {
     /**
      * @Route("/", name="index")
+
+     * @param Request $request
+     * @return Response
      */
-    public function index() : Response
+    public function index(Request $request) : Response
     {
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
@@ -34,9 +39,27 @@ class WildController extends AbstractController
             );
         }
 
-        return $this->render(
-            'wild/index.html.twig',
-                ['programs' => $programs]
+
+        $form = $this->createForm(ProgramSearchType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $data = $form->getData();
+            $keyword = preg_replace(
+                '/-/',
+                ' ', ucwords(trim(strip_tags($data['searchField'])), "-")
+            );
+            // $data contains $_POST data
+            // TODO : Faire une recherche dans la BDD avec les infos de $data…
+            $programs = $this->getDoctrine()
+                ->getRepository(Program::class)
+                ->findBy(["title" => mb_strtolower($keyword)]);
+        }
+
+        return $this->render('wild/index.html.twig', [
+                'programs' => $programs,
+                'form' => $form->createView(),
+            ]
         );
     }
 
@@ -54,13 +77,16 @@ class WildController extends AbstractController
             throw $this
                 ->createNotFoundException('No slug has been sent to find a program in program\'s table.');
         }
+
         $slug = preg_replace(
             '/-/',
             ' ', ucwords(trim(strip_tags($slug)), "-")
         );
+
         $program = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findOneBy(['title' => mb_strtolower($slug)]);
+
         if (!$program) {
             throw $this->createNotFoundException(
                 'No program with '.$slug.' title, found in program\'s table.'
@@ -99,7 +125,7 @@ class WildController extends AbstractController
             );
 
         return $this->render(
-            'wild/category.html.twig', [
+            'category/category.html.twig', [
                 'programsByCategory' => $programsByCategory,
                 'currentCategory' => $categoryName
                 ]
