@@ -10,3 +10,10 @@ __**11 - Symfony : Gardez la “form” !**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/5QtvWfY06VQ/0.jpg)](http://www.youtube.com/watch?v=5QtvWfY06VQ "Video Title")
 
+__**12 - Symfony : Générer un CRUD**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/BLWPxV49xXM/0.jpg)](http://www.youtube.com/watch?v=BLWPxV49xXM "Video Title")
+
+
+
+
