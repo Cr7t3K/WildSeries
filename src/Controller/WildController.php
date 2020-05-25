@@ -23,6 +23,7 @@ class WildController extends AbstractController
 {
     /**
      * @Route("/", name="index")
+
      * @param Request $request
      * @return Response
      */
