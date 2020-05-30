@@ -5,6 +5,10 @@ $white: #FBFCFA;
 body {
     background-color: $white;
 }
+.home-background {
+    background: url("/img/background.jpg");
+    height: 100vh;
+}
 
 
 // the ~ allows you to reference things in node_modules
