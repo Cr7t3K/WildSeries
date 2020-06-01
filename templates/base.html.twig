@@ -3,17 +3,50 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
     <body>
-        <header>{% include 'navbar.html.twig' %}</header>
+        <header id="header">{% include 'navbar.html.twig' %}</header>
 
         {% block body %}{% endblock %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            <script>
+                function openMenu() {
+                    let sideMenu = document.querySelector('.side-menu-container')
+                    sideMenu.style.width = "300px";
+
+                    document.getElementById("header").classList.add('show-black');
+
+
+                    function showCloseButton() {
+                        document.querySelector('.side-menu-close').style.display = 'block';
+                    }
+                    setTimeout(showCloseButton, 100);
+                }
+
+                function closeMenu() {
+                    let sideMenu = document.querySelector('.side-menu-container')
+                    sideMenu.style.width = "";
+
+                    document.getElementById("header").classList.remove('show-black');
+                    document.getElementById("header").classList.add('hide-black');
+
+                    function hideBlack() {
+                        document.getElementById("header").classList.remove('hide-black');
+                    }
+                    setTimeout(hideBlack, 1500);
+
+                    function hideCloseButton() {
+                        document.querySelector('.side-menu-close').style.display = 'none';
+                    }
+                    hideCloseButton()
+                }
+            </script>
         {% endblock %}
 
     </body>

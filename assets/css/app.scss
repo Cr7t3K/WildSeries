@@ -4,11 +4,211 @@ $white: #FBFCFA;
 
 body {
     background-color: $white;
+    font-family: 'Roboto', sans-serif;
 }
 .home-background {
-    background: url("/img/background.jpg");
+    background: url(/img/background.jpg);
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    .home-enter {
+        position: absolute;
+        color: #00BCD4;
+        top: 50%;
+        margin-right: 30px;
+        right: 0;
+    }
+    .home-message {
+        text-align: center;
+        height: 50%;
+        display: flex;
+        align-items: flex-end;
+        font-size: 40px;
+        color: $primary;
+        width: 50%;
+        p{
+            margin-bottom: 60px;
+        }
+    }
 }
+
+.show-black:after {
+    content: "";
+    animation: showBlack 1.5s ease;
+    background: rgba(0, 0, 0, 0.90);
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    z-index: 2;
+}
+
+
+.side-menu-container{
+    height: 100%;
+    width: 15px;
+    transition: 0.5s;
+    background: $primary;
+    position: fixed;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    &:hover{
+        width: 50px;
+        transition: 0.5s;
+    }
+
+    .side-menu-links {
+        margin-top: 50px;
+        padding: 20px 20px 20px 50px;
+        a {
+            text-decoration: none;
+            color: $white;
+            &:hover {
+                text-decoration: none;
+                color: $white;
+            }
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+
+        }
+    }
+}
+div.side-menu-open{
+    transform: rotate(-90deg);
+    position: absolute;
+    width: 50px;
+    top: 30px;
+    left: 0;
+    &:after{
+        content: "";
+        display: block;
+        width: 100px;
+        height: 3px;
+        background: $white;
+        margin-left: 20px;
+        transition: 0.3s;
+    }
+    &:hover{
+        &::after{
+            transition: 0.3s;
+            margin-left: 0;
+        }
+    }
+}
+
+.side-menu-close{
+    position: absolute;
+    width: 25px;
+    top: 15px;
+    right: 15px;
+    height: 25px;
+    color: $white;
+    display: none;
+    transition: 0.5s;
+
+    &:hover {
+        transform: rotate(90deg);
+        transition: 0.5s;
+    }
+}
+
+.side-menu-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 80px;
+    width: 80px;
+    padding: 15px;
+    color: $primary;
+    transition: 0.2s;
+    &:hover{
+        transition: 0.2s;
+        color: #00ffff;
+        filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.93));
+    }
+}
+.home-card-container {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 50px;
+    img {
+        height: 113px;
+    }
+    >div {
+        margin: 30px;
+        display: flex;
+        .home-card {
+            width: 200px;
+            height: 113px;
+            margin: 0 40px;
+            overflow: hidden;
+            transition: 0.5s;
+            &:before {
+                transition: 0.5s;
+                content: "";
+                background: rgba(43, 202, 237, 0.25);
+                width: 200px;
+                position: absolute;
+                height: 113px;
+            }
+            &:hover {
+                transform: scale(1.2);
+                &:before {
+                    transition: 0.5s;
+                    background: rgba(43, 202, 237, 0);
+                }
+            }
+        }
+    }
+}
+
+.hide-black:after{
+    content: "";
+    animation: hideBlack 1.5s ease;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    z-index: 2;
+}
+.black-shadow {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: none;
+}
+
+
+@keyframes hideBlack {
+    0% {
+        background: rgba(0, 0, 0, 0.90);
+    }
+    100% {
+        background: none;
+    }
+}
+@keyframes showBlack {
+    0% {
+        background: none;
+    }
+    100% {
+        background: rgba(0, 0, 0, 0.90);
+    }
+}
+
+
+
 
 
 // the ~ allows you to reference things in node_modules
