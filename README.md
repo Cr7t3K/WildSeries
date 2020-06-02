@@ -14,6 +14,8 @@ __**12 - Symfony : Générer un CRUD**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/BLWPxV49xXM/0.jpg)](http://www.youtube.com/watch?v=BLWPxV49xXM "Video Title")
 
+__**13 - Symfony : Validation**__
 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/2C4w9z0kJjg/0.jpg)](http://www.youtube.com/watch?v=2C4w9z0kJjg "Video Title")
 
 
