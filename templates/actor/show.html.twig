@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ actor.name }}</h1>
+    <tr>
+        <th>Actor programs</th>
+        <td>
+
+            <ul class="list-inline">
+                {% for program in actor.programs %}
+                    <li>
+                        <div class="d-flex justify-content-between bg-white border border-dark rounded">
+                            <a class="text-danger pt-3 pl-5" href="{{ path('program_show', {'id': program.id}) }}">
+                                {{ program.title }} </a>
+                            <img class="rounded border border-white" src="{{ program.poster }}"
+                                 width="120"/>
+                        </div>
+                    </li>
+
+                {% else %}
+                    <li>Aucune série pour cet acteur.</li>
+                {% endfor %}
+            </ul>
+
+
+        </td>
+    </tr>
+
+{% endblock %}
