@@ -26,19 +26,28 @@ class Program
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
-     * @Assert\Length(max="255")
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
+     * @Assert\Length(
+     *     max="255",
+     *     maxMessage="Le titre saisi est trop long,
+     *      il ne devrait pas dépasser {{ limit }} caractères"
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
      */
     private $summary;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
+     * @Assert\Regex(
+     *     pattern="/plus belle la vie/i",
+     *     match=false,
+     *     message="On parle de vraies séries ici" )
      */
     private $poster;
 
