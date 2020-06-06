@@ -26,4 +26,8 @@ __**15 - Symfony : EntityType**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/1IcK2Uk39Us/0.jpg)](http://www.youtube.com/watch?v=1IcK2Uk39Us "Video Title")
 
+__**16 - Symfony : Les fixtures**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/w8jV0cgVOwM/0.jpg)](http://www.youtube.com/watch?v=w8jV0cgVOwM "Video Title")
+
 
