@@ -10,7 +10,7 @@
                 {% for program in actor.programs %}
                     <li>
                         <div class="d-flex justify-content-between bg-white border border-dark rounded">
-                            <a class="text-danger pt-3 pl-5" href="{{ path('program_show', {'id': program.id}) }}">
+                            <a class="text-danger pt-3 pl-5" href="{{ path('program_show', {'slug': program.slug}) }}">
                                 {{ program.title }} </a>
                             <img class="rounded border border-white" src="{{ program.poster }}"
                                  width="120"/>

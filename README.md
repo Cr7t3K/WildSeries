@@ -30,4 +30,8 @@ __**16 - Symfony : Les fixtures**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/w8jV0cgVOwM/0.jpg)](http://www.youtube.com/watch?v=w8jV0cgVOwM "Video Title")
 
+__**17 - Symfony : Introduction aux “Services”**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/pl3qVwvgomo/0.jpg)](http://www.youtube.com/watch?v=pl3qVwvgomo "Video Title")
+
 

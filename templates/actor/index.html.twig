@@ -6,7 +6,7 @@
             <ul class="list-inline">
                 {% for actor in actors %}
                     <li>
-                        <h1><a href="{{ path('actor_show', {'id': actor.id}) }}">- {{ actor.name }}</a></h1>
+                        <h1><a href="{{ path('actor_show', {'slug': actor.slug}) }}">- {{ actor.name }}</a></h1>
                     </li>
 
                 {% else %}
