@@ -10,6 +10,12 @@
             <a class="nav-item nav-link" href="{{ path('episode_index') }}">Episodes</a>
             <a class="nav-item nav-link" href="{{ path('program_index') }}">Programs</a>
             <a class="nav-item nav-link" href="{{ path('actor_index') }}">Actors</a>
+            {% if app.user %}
+                {{ app.user.email }}
+                <a class="nav-item nav-link" href="{{ path('app_logout') }}">Logout</a>
+            {% else %}
+                <a class="nav-item nav-link" href="{{ path('app_login') }}">Login</a>
+            {% endif %}
 
         </div>
     </div>

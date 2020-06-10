@@ -34,4 +34,8 @@ __**17 - Symfony : Introduction aux “Services”**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/pl3qVwvgomo/0.jpg)](http://www.youtube.com/watch?v=pl3qVwvgomo "Video Title")
 
+__**18 - Symfony : Envoi d’e-mail**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/9vuzy7XEyD8/0.jpg)](http://www.youtube.com/watch?v=9vuzy7XEyD8 "Video Title")
+
 
