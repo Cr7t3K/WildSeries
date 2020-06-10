@@ -83,6 +83,8 @@ class ProgramController extends AbstractController
             ->getRepository(Program::class)
             ->findOneBy(['slug' => $slug]);
 
+
+
         return $this->render('program/show.html.twig', [
             'program' => $program,
         ]);
