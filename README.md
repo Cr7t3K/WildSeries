@@ -50,3 +50,7 @@ __**21 - Symfony : Inscription d’un utilisateur**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/Vz1PjB1Dn6s/0.jpg)](http://www.youtube.com/watch?v=Vz1PjB1Dn6s "Video Title")
 
+__**23 - Symfony : Sessions et messages flash**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/0ZSfwufeGCU/0.jpg)](http://www.youtube.com/watch?v=0ZSfwufeGCU "Video Title")
+
