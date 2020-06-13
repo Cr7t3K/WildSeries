@@ -42,8 +42,11 @@ __**19 - Symfony : Gestion des utilisateurs**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/RNAMkDQ6NfA/0.jpg)](http://www.youtube.com/watch?v=RNAMkDQ6NfA "Video Title")
 
+__**20 - Symfony : Sécurisons nos routes.**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/_3A4basYAr8/0.jpg)](http://www.youtube.com/watch?v=_3A4basYAr8 "Video Title")
+
 __**21 - Symfony : Inscription d’un utilisateur**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/Vz1PjB1Dn6s/0.jpg)](http://www.youtube.com/watch?v=Vz1PjB1Dn6s "Video Title")
-
 

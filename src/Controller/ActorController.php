@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Actor;
 use App\Repository\ActorRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,8 +19,6 @@ class ActorController extends AbstractController
 
     /**
      * @Route("/", name="_index")
-     * @param ActorRepository $actorRepository
-     * @return Response
      */
     public function index(ActorRepository $actorRepository) :Response
     {
@@ -32,8 +31,6 @@ class ActorController extends AbstractController
 
     /**
      * @Route("/show/{slug}", name="_show")
-     * @param Actor $actor
-     * @return Response
      */
     public function show(Actor $actor) :Response
     {

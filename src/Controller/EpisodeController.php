@@ -8,6 +8,7 @@ use App\Form\CommentType;
 use App\Form\EpisodeType;
 use App\Repository\EpisodeRepository;
 use App\Service\Slugify;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,9 +31,7 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/new", name="episode_new", methods={"GET","POST"})
-     * @param Request $request
-     * @param Slugify $slugify
-     * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request, Slugify $slugify): Response
     {
@@ -58,8 +57,6 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{slug}", name="episode_show", methods={"GET" , "POST"})
-     * @param Episode $episode
-     * @return Response
      */
     public function show(Request $request, Episode $episode): Response
     {
@@ -86,10 +83,7 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="episode_edit", methods={"GET","POST"})
-     * @param Request $request
-     * @param Episode $episode
-     * @param Slugify $slugify
-     * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Episode $episode, Slugify $slugify): Response
     {
@@ -112,9 +106,7 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{id}", name="episode_delete", methods={"DELETE"})
-     * @param Request $request
-     * @param Episode $episode
-     * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Episode $episode): Response
     {

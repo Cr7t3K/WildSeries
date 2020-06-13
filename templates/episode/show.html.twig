@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('episode_index') }}">back to list</a>
+    <a class="btn-primary" href="{{ path('episode_index') }}">back to list</a>
 
-    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
+    <a class="btn-secondary" href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
 
     {% if app.user %}
         <h1 class="">Add a comment for this episode: </h1>
@@ -41,7 +41,11 @@
         <h3>Commentaire de {{ comment.author.email }}</h3>
         <p>Message {{ comment.comment }}</p>
         <p>Note: {{ comment.rate }}</p>
-    {% endfor %}
 
+        {% if app.user.email == comment.author.email %}
+            {{ include('comment/_delete_form.html.twig') }}
+        {% endif %}
+    {% endfor %}
     {{ include('episode/_delete_form.html.twig') }}
+
 {% endblock %}

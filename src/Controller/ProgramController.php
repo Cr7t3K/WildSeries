@@ -6,6 +6,7 @@ use App\Entity\Program;
 use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
 use App\Service\Slugify;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,8 +21,6 @@ class ProgramController extends AbstractController
 {
     /**
      * @Route("/", name="program_index", methods={"GET"})
-     * @param ProgramRepository $programRepository
-     * @return Response
      */
     public function index(ProgramRepository $programRepository): Response
     {
@@ -32,11 +31,7 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/new", name="program_new", methods={"GET","POST"})
-     * @param Request $request
-     * @param Slugify $slugify
-     * @param MailerInterface $mailer
-     * @return Response
-     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request, Slugify $slugify, MailerInterface $mailer): Response
     {
@@ -74,8 +69,6 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{slug}", name="program_show", methods={"GET"})
-     * @param string $slug
-     * @return Response
      */
     public function show(string $slug): Response
     {
@@ -92,10 +85,7 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="program_edit", methods={"GET","POST"})
-     * @param Request $request
-     * @param Program $program
-     * @param Slugify $slugify
-     * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Program $program, Slugify $slugify): Response
     {
@@ -118,9 +108,7 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{id}", name="program_delete", methods={"DELETE"})
-     * @param Request $request
-     * @param Program $program
-     * @return Response
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Program $program): Response
     {
