@@ -13,7 +13,7 @@
             {% if app.user %}
                 {{ app.user.email }}
                 <a class="nav-item nav-link" href="{{ path('app_logout') }}">Logout</a>
-                <a class="nav-item nav-link" href="{{ path('app_logout') }}">Mon Profil</a>
+                <a class="nav-item nav-link" href="{{ path('user_show', {'id': app.user.id }) }}">Mon Profil</a>
             {% else %}
                 <a class="nav-item nav-link" href="{{ path('app_login') }}">Login</a>
                 <a class="nav-item nav-link" href="{{ path('app_register') }}">Inscription</a>
