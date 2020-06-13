@@ -75,7 +75,7 @@ class EpisodeController extends AbstractController
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('comment_index');
+            return $this->redirectToRoute('episode_show', ['slug' => $episode->getSlug()]);
         }
 
         return $this->render('episode/show.html.twig', [

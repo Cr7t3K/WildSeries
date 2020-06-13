@@ -37,5 +37,11 @@
         </div>
     {% endif %}
 
+    {% for comment in episode.comments  %}
+        <h3>Commentaire de {{ comment.author.email }}</h3>
+        <p>Message {{ comment.comment }}</p>
+        <p>Note: {{ comment.rate }}</p>
+    {% endfor %}
+
     {{ include('episode/_delete_form.html.twig') }}
 {% endblock %}

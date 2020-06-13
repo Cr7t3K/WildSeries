@@ -38,4 +38,8 @@ __**18 - Symfony : Envoi d’e-mail**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/9vuzy7XEyD8/0.jpg)](http://www.youtube.com/watch?v=9vuzy7XEyD8 "Video Title")
 
+__**19 - Symfony : Gestion des utilisateurs**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/RNAMkDQ6NfA/0.jpg)](http://www.youtube.com/watch?v=RNAMkDQ6NfA "Video Title")
+
 
