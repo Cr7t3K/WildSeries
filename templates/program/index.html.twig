@@ -19,6 +19,7 @@
                 <th>Title</th>
                 <th>Summary</th>
                 <th>Poster</th>
+                <th>Acteurs</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -29,6 +30,17 @@
                 <td>{{ program.title }}</td>
                 <td>{{ program.summary }}</td>
                 <td>{{ program.poster }}</td>
+                <td>
+                    <ul>
+                        {% for actor in program.actors %}
+                            <li>
+                                {{ actor.name }}
+                            </li>
+                        {% else %}
+                            Aucun acteur
+                        {% endfor %}
+                    </ul>
+                </td>
                 <td>
                     <a href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
                     <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
