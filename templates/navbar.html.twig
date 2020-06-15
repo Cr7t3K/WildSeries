@@ -28,6 +28,17 @@
                     <a class="dropdown-item" href="/es/">Spanish</a>
                 </div>
             </div>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    category
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                    {{ render(controller(
+                        'App\\Controller\\CategoryController::allCategory'
+                    )) }}
+                </div>
+            </div>
         </div>
     </div>
 </nav>

@@ -22,7 +22,6 @@ class CategoryFixtures extends Fixture
         'Guerre',
         'Histoire',
         'Documentaire',
-        'Animation'
     ];
 
     /**

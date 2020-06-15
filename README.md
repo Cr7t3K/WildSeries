@@ -66,3 +66,7 @@ __**25 - Symfony : Internationalisation**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/Q2VcZTAE73g/0.jpg)](http://www.youtube.com/watch?v=Q2VcZTAE73g "Video Title")
 
+__**26 - Symfony : Embedding Controller**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/oUvErJvOBhY/0.jpg)](http://www.youtube.com/watch?v=oUvErJvOBhY "Video Title")
+

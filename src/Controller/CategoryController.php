@@ -4,7 +4,9 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Program;
 use App\Form\CategoryType;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,6 +48,26 @@ class CategoryController extends AbstractController
             'category/_form-category.html.twig', [
                 'categorys' => $categorys,
                 'form' => $form->createView()
+        ]);
+    }
+
+
+    public function allcategory(CategoryRepository $categorys)
+    {
+
+        return $this->render('category/_all_category.html.twig', [
+            'categorys' => $categorys->findAll(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/category/{name}", name="show_category_program")
+     */
+    public function showCategoryProgram(Category $category) :Response
+    {
+        return $this->render('category/show.html.twig', [
+            'programs' => $category->getPrograms(),
         ]);
     }
 
