@@ -4,6 +4,11 @@
 
 {% block body %}
     <h1>Program</h1>
+{#    <button id="watchlist" href="{{ path('program_watchlist', {"id": program.id}) }}" type="button" class="btn btn-success">{{ app.user.isInWatchlist(program) ? 'Retirer des' : 'Ajouter au' }} Favoris</button>#}
+
+    <i id="watchlist"
+    class="{{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart watchlist"
+    data-href="{{ path('program_watchlist', {"id": program.id}) }}"></i>
 
     <table class="table">
         <tbody>
@@ -39,4 +44,8 @@
     <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
 
     {{ include('program/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('watchlist') }}
 {% endblock %}

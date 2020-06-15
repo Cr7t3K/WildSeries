@@ -21,6 +21,7 @@
                 <th>Poster</th>
                 <th>Acteurs</th>
                 <th>actions</th>
+                <th>Favoris</th>
             </tr>
         </thead>
         <tbody>
@@ -45,7 +46,13 @@
                     <a href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
                     <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
                 </td>
+                <td>
+                    <i id="watchlist"
+                       class="{{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart watchlist"
+                       data-href="{{ path('program_watchlist', {"id": program.id}) }}"></i>
+                </td>
             </tr>
+
         {% else %}
             <tr>
                 <td colspan="5">no records found</td>
@@ -55,4 +62,8 @@
     </table>
 
     <a href="{{ path('program_new') }}">Create new</a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('watchlist') }}
 {% endblock %}

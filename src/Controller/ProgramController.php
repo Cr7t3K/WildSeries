@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Program;
+use App\Entity\User;
 use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
 use App\Service\Slugify;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -121,5 +123,26 @@ class ProgramController extends AbstractController
         }
         $this->addFlash('danger', 'The new program has been delete');
         return $this->redirectToRoute('program_index');
+    }
+
+    /**
+     * @Route("/{id}/watchlist", name="program_watchlist")
+     * @IsGranted("ROLE_SUBSCRIBER")
+     */
+    public function addToWatchlist(Program $program, Request $request, EntityManagerInterface $manager) :Response
+    {
+        $user = $this->getUser();
+        if($user->getWatchlist()->contains($program)) {
+            $user->removeWatchlist($program);
+        }else {
+            $user->addWatchlist($program);
+        }
+        $manager->flush();
+
+        //return $this->redirectToRoute('program_show', ["slug" => $program->getSlug()]);
+        return $this->json([
+            'isInWatchlist' => $this->getUser()->isInWatchlist($program)
+        ]);
+
     }
 }
