@@ -54,8 +54,11 @@ __**22 - Symfony : Requêtes personnalisées**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/gxW6ec_Whyg/0.jpg)](http://www.youtube.com/watch?v=gxW6ec_Whyg "Video Title")
 
-
 __**23 - Symfony : Sessions et messages flash**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/0ZSfwufeGCU/0.jpg)](http://www.youtube.com/watch?v=0ZSfwufeGCU "Video Title")
+
+__**24 - Symfony : Watchlist en Ajax**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/0I3OY-QbV7Y/0.jpg)](http://www.youtube.com/watch?v=0I3OY-QbV7Y "Video Title")
 
