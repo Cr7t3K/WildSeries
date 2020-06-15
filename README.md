@@ -62,3 +62,7 @@ __**24 - Symfony : Watchlist en Ajax**__
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/0I3OY-QbV7Y/0.jpg)](http://www.youtube.com/watch?v=0I3OY-QbV7Y "Video Title")
 
+__**25 - Symfony : Internationalisation**__
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/Q2VcZTAE73g/0.jpg)](http://www.youtube.com/watch?v=Q2VcZTAE73g "Video Title")
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="Q7UTU9q" resname="account.logout">
+        <source>account.logout</source>
+        <target>Logout</target>
+      </trans-unit>
+      <trans-unit id="06ph215" resname="account.profil">
+        <source>account.profil</source>
+        <target>My Profil</target>
+      </trans-unit>
+      <trans-unit id="E_t5j6Q" resname="account.login">
+        <source>account.login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="U1doKCM" resname="account.register">
+        <source>account.register</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="GyNiJAi" resname="menu.home">
+        <source>menu.home</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="uO4G6b2" resname="menu.programs">
+        <source>menu.programs</source>
+        <target>All Programs</target>
+      </trans-unit>
+      <trans-unit id="xdpAZyI" resname="menu.season">
+        <source>menu.season</source>
+        <target>Seasons</target>
+      </trans-unit>
+      <trans-unit id="FkpeNOi" resname="menu.episode">
+        <source>menu.episode</source>
+        <target>Episodes</target>
+      </trans-unit>
+      <trans-unit id="PbvFsym" resname="menu.program">
+        <source>menu.program</source>
+        <target>Programs</target>
+      </trans-unit>
+      <trans-unit id="X7VXzfZ" resname="menu.actors">
+        <source>menu.actors</source>
+        <target>Actors</target>
+      </trans-unit>
+      <trans-unit id="HMH8khw" resname="menu.lang">
+        <source>menu.lang</source>
+        <target>Language</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,24 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ path('app_index') }}">Acceuil</a>
+    <a class="navbar-brand" href="{{ path('app_index') }}">{{ 'menu.home'|trans }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="{{ path('wild_index') }}">All Programs</a>
-            <a class="nav-item nav-link" href="{{ path('season_index') }}">Seasons</a>
-            <a class="nav-item nav-link" href="{{ path('episode_index') }}">Episodes</a>
-            <a class="nav-item nav-link" href="{{ path('program_index') }}">Programs</a>
-            <a class="nav-item nav-link" href="{{ path('actor_index') }}">Actors</a>
+            <a class="nav-item nav-link" href="{{ path('wild_index') }}">{{ 'menu.programs'|trans }}</a>
+            <a class="nav-item nav-link" href="{{ path('season_index') }}">{{ 'menu.season'|trans }}</a>
+            <a class="nav-item nav-link" href="{{ path('episode_index') }}">{{ 'menu.episode'|trans }}</a>
+            <a class="nav-item nav-link" href="{{ path('program_index') }}">{{ 'menu.program'|trans }}</a>
+            <a class="nav-item nav-link" href="{{ path('actor_index') }}">{{ 'menu.actors'|trans }}</a>
             {% if app.user %}
                 {{ app.user.email }}
-                <a class="nav-item nav-link" href="{{ path('app_logout') }}">Logout</a>
-                <a class="nav-item nav-link" href="{{ path('user_show', {'id': app.user.id }) }}">Mon Profil</a>
+                <a class="nav-item nav-link" href="{{ path('app_logout') }}">{{ 'account.logout'|trans }}</a>
+                <a class="nav-item nav-link" href="{{ path('user_show', {'id': app.user.id }) }}">{{ 'account.profil'|trans }}</a>
             {% else %}
-                <a class="nav-item nav-link" href="{{ path('app_login') }}">Login</a>
-                <a class="nav-item nav-link" href="{{ path('app_register') }}">Inscription</a>
+                <a class="nav-item nav-link" href="{{ path('app_login') }}">{{ 'account.login'|trans }}</a>
+                <a class="nav-item nav-link" href="{{ path('app_register') }}">{{ 'account.register'|trans }}</a>
             {% endif %}
-
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ 'menu.lang'|trans }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/fr/">Français</a>
+                    <a class="dropdown-item" href="/en/">English</a>
+                    <a class="dropdown-item" href="/es/">Spanish</a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
